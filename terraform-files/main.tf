@@ -15,10 +15,10 @@ resource "aws_instance" "test-server" {
   tags = {
      Name = "test-server"
      }
-  provisoner "local-exec" {
+  provisioner "local-exec" {
      command = "echo ${aws_instance.test-server.public_ip} > inventory"
      }
-  provisoner "local-exec" {
+  provisioner "local-exec" {
      command = "ansible-playbook /var/lib/jenkins/workspace/Care-Health/terraform-files/ansibleplaybook.yml"
      }
   }
